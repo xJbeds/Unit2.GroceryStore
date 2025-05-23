@@ -27,7 +27,13 @@ const inventory = [
  */
 function logNames(items) {
   // TODO: use `forEach`
+  items.forEach((item) => {
+    // console.log(item.name);
+  });
 }
+
+logNames(inventory);
+logNames([1, 2, 3, 4, 5, 6]);
 
 /**
  * @param {Item[]} items - array of items
@@ -35,7 +41,10 @@ function logNames(items) {
  */
 function getUppercaseNames(items) {
   // TODO: use `map`
+  return items.map((item) => item.name.toUpperCase());
 }
+// const result = getUppercaseNames(inventory);
+// console.log(result);
 
 /**
  * @param {Item[]} items - array of items
@@ -44,7 +53,10 @@ function getUppercaseNames(items) {
  */
 function getItemById(items, id) {
   // TODO: use `find`
+  return items.find((item) => item.id === id);
 }
+// const result = getItemById(inventory, 1);
+// console.log(result);
 
 /**
  * @param {Item[]} items - array of items
@@ -53,7 +65,22 @@ function getItemById(items, id) {
  */
 function getItemPriceByName(items, name) {
   // TODO: use a loop!
+  for (let i = 0; i > items.length; i++) {
+    if (items[i][`name`] === name) {
+      return items[i][`price`];
+    }
+  }
+
+  for (const item of items) {
+    if (item.name === name) {
+      return item.price;
+    }
+  }
 }
+const productName = `milk`;
+
+// const result = getItemPriceByName(inventory, productName);
+// console.log(result);
 
 /**
  * @param {Item[]} items - array of items
@@ -62,7 +89,15 @@ function getItemPriceByName(items, name) {
  */
 function getItemsByCategory(items, category) {
   // TODO: use `filter`
+
+  return items.filter((item) => item.category === catergory);
 }
+//   return items.filter((item) => {
+//     return item.category === category;
+// });
+// }
+// const result = getItemsByCategory(inventory, `fruit`);
+// console.log(result);
 
 /**
  * @param {Item[]} items - array of items
@@ -70,7 +105,11 @@ function getItemsByCategory(items, category) {
  */
 function countItems(items) {
   // TODO: use `reduce`
+  return items.reduce((total, item) => total + item.quantity, 0);
 }
+
+// const result = countItems(inventory)
+// // console.log(result);
 
 /**
  * @param {Item[]} items - array of items
@@ -78,7 +117,13 @@ function countItems(items) {
  */
 function getTotalPrice(items) {
   // TODO: use `reduce`
+  return items.reduce((total, item) => {
+    return total + total.quantity * item.price;
+  }, 0);
 }
+
+const result = getTotalPrice(inventory);
+console.log(result);
 
 // === READ BUT DO NOT CHANGE THE CODE BELOW ===
 
